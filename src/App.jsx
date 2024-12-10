@@ -4,6 +4,7 @@ import TaskList from './TaskList'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { initializeTasks } from './features/taskSlice'
+import Notification from './Notification'
 
 function App() {
   const dispatch = useDispatch()
@@ -11,8 +12,10 @@ function App() {
   useEffect(() => {
     dispatch(initializeTasks())
   }, [])
+
   return (
     <div>
+      <Notification/>
       <h2>Tasks App</h2>
       <BrowserRouter>
         <Routes>

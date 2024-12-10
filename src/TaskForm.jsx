@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  editTask, createNewTask } from './features/taskSlice'
 import { useNavigate, useParams } from 'react-router'
+import { showNotification } from './features/notificationSlice'
 
 function NewTaskForm() {
   const dispatch = useDispatch()
@@ -24,6 +25,7 @@ function NewTaskForm() {
     if (params.id) {
       dispatch(editTask(task))
     } else {
+      dispatch(showNotification('fuaaa mi brother'))
       dispatch(createNewTask(task))
       setTask({
         title: '',

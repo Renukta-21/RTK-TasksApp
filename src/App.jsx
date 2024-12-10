@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import NewTaskForm from './TaskForm'
 import TaskList from './TaskList'
 import { useEffect } from 'react'
-import tasksServices from './services/tasksServices'
 import { useDispatch } from 'react-redux'
 import { initializeTasks } from './features/taskSlice'
 

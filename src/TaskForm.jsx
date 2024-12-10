@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addTask } from "./features/taskSlice"
-
+import { useNavigate } from "react-router"
 
 function NewTaskForm() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [task, setTask] = useState({
     title:'',
@@ -18,6 +19,7 @@ function NewTaskForm() {
       title:'',
       description:''
     })
+    navigate('/')
   }
   const handleChange=(e)=>{
     setTask({

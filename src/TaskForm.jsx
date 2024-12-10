@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTask, editTask, initializeTasks } from './features/taskSlice'
+import {  editTask, createNewTask } from './features/taskSlice'
 import { useNavigate, useParams } from 'react-router'
-import tasksServices from './services/tasksServices'
 
 function NewTaskForm() {
   const dispatch = useDispatch()
@@ -25,7 +24,7 @@ function NewTaskForm() {
     if (params.id) {
       dispatch(editTask(task))
     } else {
-      dispatch(initializeTasks())
+      dispatch(createNewTask(task))
       setTask({
         title: '',
         description: '',

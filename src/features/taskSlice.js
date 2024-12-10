@@ -39,4 +39,11 @@ export const initializeTasks = ()=>{
         dispatch(setTasks(tasks))
     }
 }
+
+export const createNewTask = (newTask)=>{
+    return async dispatch =>{
+        const response = await tasksServices.postNew(newTask)
+        dispatch(addTask(response))
+    }
+}
 export default tasksSlice.reducer

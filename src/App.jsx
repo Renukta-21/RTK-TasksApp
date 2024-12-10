@@ -4,13 +4,13 @@ import TaskList from './TaskList'
 import { useEffect } from 'react'
 import tasksServices from './services/tasksServices'
 import { useDispatch } from 'react-redux'
-import { setTasks } from './features/taskSlice'
+import { initializeTasks } from './features/taskSlice'
 
 function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    tasksServices.getAll().then((tasks) => dispatch(setTasks(tasks)))
+    dispatch(initializeTasks())
   }, [])
   return (
     <div>

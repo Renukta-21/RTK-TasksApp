@@ -1,0 +1,7 @@
+POST http://localhost:3001/tasks
+Content-Type: application/json
+
+{
+    "title":"New added task",
+    "description":"New task description"
+}

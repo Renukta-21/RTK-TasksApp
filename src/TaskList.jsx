@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteTask, editTask } from './features/taskSlice'
+import { deleteTask} from './features/taskSlice'
 import { Link } from 'react-router'
 
 function TaskList() {

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTask, editTask } from './features/taskSlice'
 import { useNavigate, useParams } from 'react-router'
+import tasksServices from './services/tasksServices'
 
 function NewTaskForm() {
   const dispatch = useDispatch()
@@ -18,13 +19,14 @@ function NewTaskForm() {
       setTask(tasks.find((t) => t.id === params.id))
     }
   }, [])
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async(e) => {
     e.preventDefault()
     if (params.id) {
       dispatch(editTask(task))
     } else {
-      dispatch(addTask(task))
+      const response = await tasksServices.postNew(task)
+      dispatch(addTask(response))
       setTask({
         title: '',
         description: '',
